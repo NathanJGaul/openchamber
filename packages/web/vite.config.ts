@@ -101,6 +101,7 @@ export default defineConfig({
     emptyOutDir: true,
     chunkSizeWarningLimit: 500,
     rollupOptions: {
+      maxParallelFileOps: 3,
       input: {
         main: path.resolve(__dirname, 'index.html'),
         miniChat: path.resolve(__dirname, 'mini-chat.html'),
