@@ -1,0 +1,34 @@
+services:
+  openchamber:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - SERVICE_FQDN_OPENCHAMBER
+      - UI_PASSWORD:${SERVICE_PASSWORD_OPENCHAMBER}
+    volumes:
+      - type: bind
+        source: ./data/openchamber
+        target: /home/openchamber/.config/openchamber
+        is_directory: true
+      - type: bind
+        source: ./data/opencode/share
+        target: /home/openchamber/.local/share/opencode
+        is_directory: true
+      - type: bind
+        source: ./data/opencode/state
+        target: /home/openchamber/.local/state/opencode
+        is_directory: true
+      - type: bind
+        source: ./data/opencode/config
+        target: /home/openchamber/.config/opencode
+        is_directory: true
+      - type: bind
+        source: ./data/ssh
+        target: /home/openchamber/.ssh
+        is_directory: true
+      - type: bind
+        source: ./workspaces
+        target: /home/openchamber/workspaces
+        is_directory: true
+    restart: unless-stopped
