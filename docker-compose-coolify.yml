@@ -32,3 +32,5 @@ services:
         target: /home/openchamber/workspaces
         is_directory: true
     restart: unless-stopped
+    mem_limit: 4g
+    mem_reservation: 512m
