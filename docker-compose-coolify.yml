@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile
     environment:
       - SERVICE_FQDN_OPENCHAMBER_3000
-      - UI_PASSWORD:${SERVICE_PASSWORD_OPENCHAMBER}
+      - UI_PASSWORD=${SERVICE_PASSWORD_OPENCHAMBER}
     volumes:
       - type: bind
         source: ./data/openchamber
