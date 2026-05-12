@@ -16,8 +16,8 @@ FROM deps AS builder
 WORKDIR /app
 COPY . .
 RUN apt-get update && apt-get install -y --no-install-recommends nodejs && rm -rf /var/lib/apt/lists/*
-ENV NODE_OPTIONS="--max-old-space-size=1536"
-RUN ulimit -v 2500000 && node /app/node_modules/.bin/vite build --root packages/web
+ENV NODE_OPTIONS="--max-old-space-size=2048"
+RUN node /app/node_modules/.bin/vite build packages/web
 
 FROM oven/bun:1 AS runtime
 WORKDIR /home/openchamber
