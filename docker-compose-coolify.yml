@@ -4,7 +4,7 @@ services:
       context: .
       dockerfile: Dockerfile
     environment:
-      - SERVICE_FQDN_OPENCHAMBER
+      - SERVICE_FQDN_OPENCHAMBER_3000
       - UI_PASSWORD:${SERVICE_PASSWORD_OPENCHAMBER}
     volumes:
       - type: bind
